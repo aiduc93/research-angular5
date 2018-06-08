@@ -2,19 +2,17 @@
 <div class="container">
   <h1 class='text-center'>Lifecycle Hook</h1>
   <div class="row">
-
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Lifecycle Hook</h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" *ngIf='isShowing'>
         <app-lifecycle-hook></app-lifecycle-hook>
       </div>
     </div>
   </div>
   <hr>
   <h1 class='text-center'>Interpolation</h1>
-
   <div class="row">
     <div class="col-md-3 row">
       <span class="label form-control">ID: {{txtID}}</span>
@@ -33,5 +31,14 @@
   <div class="row">
     <app-pipe></app-pipe>
   </div>
-
+  <h1 class='text-center'>Services</h1>
+  <h1>{{title}}</h1>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <app-first></app-first>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <app-second></app-second>
+    </div>
+  </div>
 </div>

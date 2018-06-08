@@ -16,5 +16,5 @@ export class LifecycleHookComponent implements OnInit {
   ngOnInit() {
     console.log('ngOnInit')
   }
-
+  
 }
