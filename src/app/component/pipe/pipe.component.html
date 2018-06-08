@@ -1,0 +1,129 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Pipe Name</th>
+        <th>Data without using pipe</th>
+        <th>Data with uisng pipe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Uppercase</td>
+        <td>{{content}}</td>
+        <td>{{content | uppercase}}</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Lowercase</td>
+        <td>{{content}}</td>
+        <td>{{content | lowercase}}</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Titlecase</td>
+        <td>{{content}}</td>
+        <td>{{content | titlecase}}</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Slice</td>
+        <td>{{content}}</td>
+        <!-- 
+          5: vị trí bắt đầu
+          12: vị trí kết thúc(không có cũng được)          
+         -->
+        <td>{{content | slice :5: 12}}</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Decimal</td>
+        <td>{{number}}</td>
+        <!-- 
+          5:chữ số phần nguyên, nếu thiếu tự thêm số 0 vào trước
+          1: chữ số thập phân tối thiểu, nếu thiếu tự thêm số 0
+          3: chữ số thập phân tối đa
+          chữ số thập phân tối thiểu phải NHỎ HƠN chữ số thập phân tối đa     
+        -->
+        <td>{{number | number:'5.1-3'}}</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Percent</td>
+        <td>{{result}}</td>
+        <!-- 
+          Cũng giống decimal
+          5:chữ số phần nguyên, nếu thiếu tự thêm số 0 vào trước
+          1: chữ số thập phân tối thiểu, nếu thiếu tự thêm số 0
+          3: chữ số thập phân tối đa
+          chữ số thập phân tối thiểu phải NHỎ HƠN chữ số thập phân tối đa     
+        -->
+        <td>{{result | percent}}</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Currency</td>
+        <td>{{currency}}</td>
+        <!-- 
+          default là USD
+          có thể thêm tham số: currency:[:code] (search ISO 4217)
+          false và true khác nhau
+         -->
+        <td>{{currency | currency:'VND':false}}</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Date</td>
+        <td>{{today}}</td>
+        <td>{{today | date: 'dd-MM-yyyy'}}</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>JSON</td>
+        <td>{{product}}</td>
+        <td>{{product | json}}</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Custom Pipe-Format data</td>
+        <td>{{content}}</td>
+        <td>{{content | formatData}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="number " class='form-control' value='' [(ngModel)]='filterID' />
+        </td>
+        <td>
+          <input type="text" class='form-control' value='' [(ngModel)]='filterName' />
+        </td>
+        <td>
+          <select  class='form-control' [(ngModel)]='filterStatus' >
+            <option value="">Select Status</option>
+            <option  *ngFor='let option of optionsFilter' value="{{option.key}}">{{option.value}}</option>
+          </select>
+          <!-- <input type="text" class='form-control' value='' [(ngModel)]='filterStatus'> -->
+        </td>
+      </tr>
+      <tr *ngFor='let product of products | filterData: filterID :filterName :filterStatus '>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.status ? 'Active' : 'Deactive'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
