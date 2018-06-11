@@ -1,44 +1,4 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <h1 class='text-center'>Lifecycle Hook</h1>
-  <div class="row">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Lifecycle Hook</h3>
-      </div>
-      <div class="panel-body" *ngIf='isShowing'>
-        <app-lifecycle-hook></app-lifecycle-hook>
-      </div>
-    </div>
-  </div>
-  <hr>
-  <h1 class='text-center'>Interpolation</h1>
-  <div class="row">
-    <div class="col-md-3 row">
-      <span class="label form-control">ID: {{txtID}}</span>
-      <span class="label form-control">FullName: {{txtFullName}}</span>
-      <span class="label form-control">Address: {{txtAddress}}</span>
-    </div>
-  </div>
-  <div class="row">
-    <app-child [name]='name' [isMale]='isMale' [age]='age' (txtID)='onGetID($event)' (txtFullName)='onGetFullName($event)' (txtAddress)='onGetAddress($event)'></app-child>
-  </div>
-  <div class="row">
-    <users-list [users]='users'></users-list>
-  </div>
-  <hr>
-  <h1 class='text-center'>Pipe & custom pipe</h1>
-  <div class="row">
-    <app-pipe></app-pipe>
-  </div>
-  <h1 class='text-center'>Services</h1>
-  <h1>{{title}}</h1>
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <app-first></app-first>
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <app-second></app-second>
-    </div>
-  </div>
-</div>
+<app-header></app-header>
+
+<router-outlet></router-outlet>

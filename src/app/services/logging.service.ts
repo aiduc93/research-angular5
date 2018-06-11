@@ -9,4 +9,5 @@ export class LoggingService {
   logging(value): void {
     console.log(value);
   }
+  
 }

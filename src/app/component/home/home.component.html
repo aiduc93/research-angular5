@@ -1,0 +1,81 @@
+<div class="container">
+    <h1 class='text-center'>Lifecycle Hook</h1>
+    <div class="row">
+      <div class="card ">
+        <div class="card-header bg-info">
+          <h3 class="panel-title">Lifecycle Hook</h3>
+        </div>
+        <div class="card-body">
+          <ng-container *ngIf='isShowing'>
+            <app-lifecycle-hook [total]='total'></app-lifecycle-hook>
+          </ng-container>
+          <button type="button" class="btn btn-default" (click)='onToggle()'>Toggle</button>
+          <div class="form-group">
+            <label for="">Number 1: </label>
+            <input type="number" class="form-control" [(ngModel)]='number1'>
+          </div>
+          <div class="form-group">
+            <label for="">Number 2: </label>
+            <input type="number" class="form-control" [(ngModel)]='number2'>
+          </div>
+          <button type="button" class="btn btn-default" (click)='onCalculate()'>Calculate</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card ">
+        <div class="card-header bg-info">
+          <h3 class="panel-title">Ng-Content</h3>
+        </div>
+        <div class="card-body">
+          <app-ng-content>
+            <h1>Ng content 1</h1>
+            <h1 class='myClass'>ng content with class</h1>
+            <h1 id='myID'>ng content with id(it's not in content ID area but it's appear in content area)</h1>
+            <h5>ng content with name tag</h5>
+            <h1 myAttr>ng content with attribute</h1>
+            <h1 myAttr='angular'>ng content with attribute and value attribute(it's just appear in content attribute area if attribute same with
+              containt attribute exist)</h1>
+            <h1 course='angular'>ng content with attribute and value attribute(it's appear in content attribute and value area when using difference
+              name attribute)</h1>
+            <h1 myAttr1 myAttr2>ng content with multi attribute </h1>
+            <h1 #value>ngContentAfterChecked: {{content}}</h1>
+          </app-ng-content>
+          <div class="form-group">
+            <input type="text" [(ngModel)]='content's class="form-control">
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <hr>
+    <h1 class='text-center'>Interpolation</h1>
+    <div class="row">
+      <div class="col-md-3 row">
+        <span class="label form-control">ID: {{txtID}}</span>
+        <span class="label form-control">FullName: {{txtFullName}}</span>
+        <span class="label form-control">Address: {{txtAddress}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <app-child [name]='name' [isMale]='isMale' [age]='age' (txtID)='onGetID($event)' (txtFullName)='onGetFullName($event)' (txtAddress)='onGetAddress($event)'></app-child>
+    </div>
+    <div class="row">
+      <users-list [users]='users'></users-list>
+    </div>
+    <hr>
+    <h1 class='text-center'>Pipe & custom pipe</h1>
+    <div class="row">
+      <app-pipe></app-pipe>
+    </div>
+    <h1 class='text-center'>Services</h1>
+    <h1>{{title}}</h1>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <app-first></app-first>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <app-second></app-second>
+      </div>
+    </div>
+  </div>

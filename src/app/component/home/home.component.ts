@@ -1,11 +1,15 @@
-import { Component, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent implements AfterViewInit, AfterViewChecked {
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
+  constructor() {}
+  ngOnInit() {
+   
+  }
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked');    
   }
@@ -63,4 +67,5 @@ export class AppComponent implements AfterViewInit, AfterViewChecked {
     this.total = this.number1 + this.number2;
     console.log(this.total)
   }
+  
 }

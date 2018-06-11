@@ -1,0 +1,28 @@
+<div class="card ">
+    <div class="card-header bg-info">
+      <h5 class="panel-title">Ng-Content</h5>
+    </div>
+    <div class="card-body">
+      <h4>Ng Content</h4>
+      <ng-content></ng-content>
+      <hr>
+      Class
+      <ng-content select='.myClass'></ng-content>
+      <hr>
+      ID
+      <ng-content select='#myID'></ng-content>
+      <hr>
+      Name tag
+      <ng-content select='h5'></ng-content>
+      <hr>
+      Attribute
+      <ng-content select='[myAttr]'></ng-content>
+      <hr>
+      Attribute and value attribute
+      <ng-content select='[myAttr=angular]'></ng-content>
+      <ng-content select='[course=angular]'></ng-content>
+      <hr>
+      Multi Attribute
+      <ng-content select='[myAttr1][myAttr2]'></ng-content>
+    </div>
+  </div>
