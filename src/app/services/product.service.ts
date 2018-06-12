@@ -37,5 +37,18 @@ export class ProductService {
     },
   ];
   constructor() { };
+  getAllProduct() {
+    return this.products;
+  }
 
+  getProductByID(id) {
+    let result = null;
+    for(const product of this.products) {
+      
+      if (product.id === parseInt(id)) {
+        result = product;
+      }
+    }
+    return result;
+  }
 }
