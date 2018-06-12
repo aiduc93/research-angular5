@@ -1,3 +1,29 @@
-<p>
-  product works!
-</p>
+<div class="form-group">
+  <label for="">Name</label>
+  <input class="form-control" [(ngModel)]='name' />
+</div>
+<div class="form-group">
+  <label for="">Price</label>
+  <input class="form-control" [(ngModel)]='price' />
+</div>
+
+<button type="button" class="btn btn-primary" [routerLink] = "['/product']" [queryParams]="{name: name, price: price}">Search</button>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let product of products' [routerLink]="['/product', product.id]">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price | currency: 'VND'}}</td>
+      <td>{{product.status}}</td>
+    </tr>
+  </tbody>
+</table>
