@@ -1,0 +1,47 @@
+<div class='container'>
+  <div class="row">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Title</th>
+          <th>Body</th>
+          <th>Description</th>
+          <th>Favorited</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let article of articles">
+          <td>{{article.author.username}}</td>
+          <td>{{article.title}}</td>
+          <td>{{article.body | formatData }}</td>
+          <td>{{article.description }}</td>
+          <td>{{article.favorited}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <form>
+    <legend>Add New Article</legend>
+
+    <div class="form-group">
+      <label for="">Title</label>
+      <input type="text" class="form-control" name="title" id="" placeholder="Input field" [(ngModel)]="title">
+    </div>
+    <div class="form-group">
+      <label for="">Body</label>
+      <input type="text" class="form-control" name="body" id="" placeholder="Input field" [(ngModel)]="body">
+    </div>
+    <div class="form-group">
+      <label for="">Description</label>
+      <input type="text" class="form-control" name="description" id="" placeholder="Input field" [(ngModel)]="description">
+    </div>
+    <div class="form-group">
+      <label for="">Tags</label>
+      <input type="text" class="form-control" name="tagList" id="" placeholder="Input field" [(ngModel)]="tagList">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="handlePostArticle()">Submit</button>
+  </form>
+
+</div>

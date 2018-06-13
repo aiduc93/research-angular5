@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ChildComponent } from './component/child/child.component';
 import { UsersComponent } from './component/users/users.component';
@@ -23,6 +24,9 @@ import { HomeComponent } from './component/home/home.component';
 import { NotfoundComponent } from './component/notfound/notfound.component';
 import { appRoutes } from "./app.routes";
 import { ProductComponent } from './component/product/product.component';
+import { EditproductComponent } from './component/editproduct/editproduct.component';
+import { TodoComponent } from './component/todo/todo.component';
+import { ArticleComponent } from './component/article/article.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,18 +44,24 @@ import { ProductComponent } from './component/product/product.component';
     ContactComponent,
     HomeComponent,
     NotfoundComponent,
-    ProductComponent
+    ProductComponent,
+    EditproductComponent,
+    TodoComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule.forRoot(),
+    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
     LoggingService
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

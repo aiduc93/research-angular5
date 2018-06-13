@@ -1,6 +1,4 @@
-import { stat } from "fs";
-
-export class Product{
+export class Product {
     public id: number;
     public name: string;
     public price: number;
@@ -11,4 +9,5 @@ export class Product{
         this.price = price;
         this.status = status;
     }
+
 }
